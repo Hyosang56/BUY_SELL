@@ -4,15 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>logoutaction</title>
 </head>
 <body>
 <%
-Cookie user = new Cookie("id", ""); //새로운 user 인스턴스 생성 (값 초기화)
-user.setMaxAge(0);
-response.addCookie(user); //쿠키에 초기화된 user정보를 보냄
-session.invalidate();
-response.sendRedirect("loginForm.jsp"); //로그아웃 후 로그인페이지로 연결
-%>
+		session.invalidate();//현재 이 페이지에 접속한 회원이 세션을 빼앗기도록
+	%>
+	<script>
+		location.href="MAIN.jsp";
+	</script>
 </body>
 </html>

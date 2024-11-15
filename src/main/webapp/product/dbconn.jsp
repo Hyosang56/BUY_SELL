@@ -5,9 +5,9 @@
 	//DB와 jsp를 연결하는 객체
 	Connection conn= null;
 	
-	String url= "jdbc:mysql://localhost:3306/buy&sell";
-	String user= "root";
-	String password= "mysql123";
+	String url= "jdbc:mysql://localhost:3306/buynselldb";
+	String user= "dbmgrid";
+	String password= "dbmgrpw";
 	
 	try{
 		// 드라이버 파일 로드해오기
