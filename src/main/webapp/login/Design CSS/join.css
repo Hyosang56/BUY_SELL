@@ -1,0 +1,86 @@
+html,
+body {
+  height: 100%;
+}
+
+body {                            /*백그라운드 화면색, 페딩처리(여유공간) 옵션*/
+  padding-top: 0px;
+  padding-bottom: 20px;
+  background-color: #f5f5f5;
+}
+
+.contentmain {                      /*컴포넌트 정렬 관리*/
+	display: flex;
+	align-items: center;
+	padding-top: 150px;
+  padding-bottom: 150px;
+	
+}
+
+.form-join {                        /*폼관련 설정 해당 값으로 전체 길이 설정*/
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  margin: auto;
+}
+
+.form-join .form-radio {                 /*라디오박스 폰트 옵션*/
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.form-join .form-id {                 /*id항목 플로팅창,버튼 정렬 옵션*/
+  display: flex;
+}
+
+.form-join .form-floating:focus-within {
+  z-index: 7;
+}
+
+/*입력컴포넌트 설정*/
+
+.form-join input[type="id"] {                 /*아이디 입력 플로팅라벨 옵션*/
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  width: 338px;
+}
+
+.form-join input[type="password"] {           /*비밀번호 입력 플로팅라벨 옵션*/
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.form-join input[type="repassword"] {           /*비밀번호 확인재입력 플로팅라벨 옵션*/
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.form-join input[type="email"] {           /*이메일 입력 플로팅라벨 옵션*/
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.form-join input[type="name"] {            /*이름 입력 플로팅라벨 옵션*/
+  margin-bottom: 10px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.form-join input[type="dob"] {           /*생년월일 입력 플로팅라벨 옵션*/
+  margin-bottom: 10px;
+}
+
+.form-join input[type="phone"] {           /*휴대폰번호 입력 플로팅라벨 옵션*/
+  margin-bottom: 10px;
+}
