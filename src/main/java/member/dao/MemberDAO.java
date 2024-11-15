@@ -16,18 +16,24 @@ public class MemberDAO {
 	private String DBPassword = "dbmgrpw";
 	
 	private Connection conn;
-	private PreparedStatement pstmt;
+	private PreparedStatement pstmt;     //sql 인젝션 방
 	private ResultSet rs;
 	
 	public MemberDAO(){
 		try{
-			Class.forName(diver);
-			
+			String dbURL = "jdbc:mysql://localhost:3306/buynselldb";
+			String dbID="dbmgrid";
+			String dbPasseord="dbmgrpw";
+			Class.forName(diver); ;//mysql드라이버를 찾는다.
+			conn=DriverManager.getConnection(dbURL,dbID,dbPasseord);
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
+	
+	///////////////////////////////////
+	
 	public Connection getConnection(){
 		try {
 			conn = DriverManager.getConnection(DBURL, DBUser, DBPassword);
@@ -38,6 +44,11 @@ public class MemberDAO {
 		return conn;
 	}
 	
+	////////////////
+	
+	
+	////////////////////////////
+	
 	public int write(MemberDTO memberDTO){
 		int su = 0;
 		conn = getConnection();
@@ -46,13 +57,13 @@ public class MemberDAO {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memberDTO.getID());
-			pstmt.setString(2, memberDTO.getPW());
-			pstmt.setString(3, memberDTO.getNAME());
-			pstmt.setString(4, memberDTO.getGENDER());
-			pstmt.setString(5, memberDTO.getEMAIL());
-			pstmt.setString(6, memberDTO.getDOB());
-			pstmt.setString(7, memberDTO.getPHONE());
+			pstmt.setString(1, memberDTO.getuserid());
+			pstmt.setString(2, memberDTO.getuserpw());
+			pstmt.setString(3, memberDTO.getusername());
+			pstmt.setString(4, memberDTO.getusergender());
+			pstmt.setString(5, memberDTO.getuseremail());
+			pstmt.setString(6, memberDTO.getuserdob());
+			pstmt.setString(7, memberDTO.getuserphone());
 			su = pstmt.executeUpdate();
 			
 			
@@ -195,11 +206,11 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();//select
 			if(rs.next()) {//결과가 있다면
 				MemberDTO user = new MemberDTO();
-				user.setID(rs.getString(1));//첫 번째 결과 값
-				user.setPW(rs.getString(2));
-				user.setNAME(rs.getString(3));
-				user.setGENDER(rs.getString(4));
-				user.setEMAIL(rs.getString(5));
+				user.setuserid(rs.getString(1));//첫 번째 결과 값
+				user.setuserpw(rs.getString(2));
+				user.setusername(rs.getString(3));
+				user.setusergender(rs.getString(4));
+				user.setuseremail(rs.getString(5));
 				return user;//6개의 항목을 user인스턴스에 넣어 반환한다.
 			}			
 		} catch(Exception e) {
@@ -243,27 +254,17 @@ public class MemberDAO {
 	
 	/////////////////////////////////////////////
 	
-	public UserDAO() {//mysql에 접속을 하게 해줌,자동으로 데이터베이스 커넥션이 일어남
-		try {//예외처리
-			String dbURL = "jdbc:mysql://localhost:3306/BBS?serverTimezone=UTC";
-			String dbID="root";
-			String dbPasseord="1248";
-			Class.forName("com.mysql.jdbc.Driver");//mysql드라이버를 찾는다.
-			//드라이버는 mysql에 접속할 수 있도록 매개체 역할을 하는 하나의 라이브러리
-			conn=DriverManager.getConnection(dbURL,dbID,dbPasseord);
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+	
 	
 /////////////////////////////////////////////
 	
 	public int login1(String userid, String userpw) {//로그인을 시도하는 함수
-		String SQL="SELECT userpw FROM userdb WHERE userid = ?";
+		String SQL = "SELECT userpw FROM userdb WHERE userid = ?";
 		try {
 			pstmt=conn.prepareStatement(SQL);
 			pstmt.setString(1,userid);//아이디가 일치하면 비밀번호를 가져온다.
 			rs = pstmt.executeQuery();//rs에 실행한 결과를 넣어준다.
+			
 			if(rs.next()) {//결과가 존재한다면
 				if(rs.getString(1).equals(userpw))//sql문장을 실행해서 나온 결과와 접속을 시도했던 passwd비교
 					return 1;//로그인 성공

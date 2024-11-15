@@ -10,53 +10,53 @@ public class MemberDTO {
 	private String userdob;
 	private String userphone;
 	
-	public String getID() {
+	public String getuserid() {
 		return userid;
 	}
-	public void setID(String id) {
-		this.userid = id;
+	public void setuserid(String userid) {
+		this.userid = userid;
 	}
 	
-	public String getPW() {
+	public String getuserpw() {
 		return userpw;
 	}
-	public void setPW(String pw) {
-		this.userpw = pw;
+	public void setuserpw(String userpw) {
+		this.userpw = userpw;
 	}
 	
-	public String getNAME() {
+	public String getusername() {
 		return username;
 	}
-	public void setNAME(String name) {
-		this.username = name;
+	public void setusername(String username) {
+		this.username = username;
 	}
 	
-	public String getGENDER() {
+	public String getusergender() {
 		return usergender;
 	}
-	public void setGENDER(String gender) {
-		this.usergender = gender;
+	public void setusergender(String usergender) {
+		this.usergender = usergender;
 	}
 	
-	public String getEMAIL() {
+	public String getuseremail() {
 		return useremail;
 	}
-	public void setEMAIL(String email) {
-		this.useremail = email;
+	public void setuseremail(String useremail) {
+		this.useremail = useremail;
 	}
 	
-	public String getDOB() {
+	public String getuserdob() {
 		return userdob;
 	}
-	public void setDOB(String dob) {
-		this.userdob = dob;
+	public void setuserdob(String userdob) {
+		this.userdob = userdob;
 	}
 	
-	public String getPHONE() {
+	public String getuserphone() {
 		return userphone;
 	}
-	public void setPHONE(String phone) {
-		this.userphone = phone;
+	public void setuserphone(String userphone) {
+		this.userphone = userphone;
 	}
 
 

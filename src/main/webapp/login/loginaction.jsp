@@ -4,10 +4,11 @@
 <%@ page import="member.dao.MemberDAO"%>
 <%@ page import="member.bean.MemberDTO"%>
 <%@ page import="java.io.PrintWriter" %>
+<% request.setCharacterEncoding("utf-8"); %>
     
 <jsp:useBean id="user" class="member.bean.MemberDTO" scope="page"/>    <%--빈을 생성한다. --%>
-<jsp:setProperty name="user" property="ID"/>     <%--빈에 값을 저장 --%>
-<jsp:setProperty name="user" property="PW" />
+<jsp:setProperty name="user" property="userid"/>     <%--빈에 값을 저장 --%>
+<jsp:setProperty name="user" property="userpw" />
 <!DOCTYPE html>
 
 <html>
@@ -29,36 +30,34 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('이미 로그인이 되어있습니다.')");
-			script.println("location.href='main.jsp'");
+			script.println("location.href='MAIN.jsp'");
 			script.println("</script>");
 		}
 		MemberDAO MemberDAO=new MemberDAO();//하나의 인스턴스
-		int result = MemberDAO.login1(user.getID(), user.getPW());//페이지에 입력된 아이디와 비번을 login함수에 넣어줌
+		int result = MemberDAO.login1(user.getuserid(), user.getuserpw());//페이지에 입력된 아이디와 비번을 login함수에 넣어줌
 		if(result == 1){
-			session.setAttribute("userid",user.getID());//세션부여
+			session.setAttribute("userid",user.getuserid());//세션부여
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("location.href='MAIN.jsp'");//로그인에 성공하면 main페이지로
 			script.println("</script>");
 		}
 		
-		else if(result==-2){
+		else if(result == -2){
 			PrintWriter script=response.getWriter();
-			script.println("<script>");
-			script.println("alert('데이터베이스 오류가 발생했습니다.')");
-			script.println("history.back()");
-			script.println("</script>");
+			session.setAttribute("errMsg", "계정에 문제가 생겼습니다 관리자에 문의해주세요.");
+			response.sendRedirect("loginForm.jsp");	
 		}
 		
-		else if(result==0) {
+		else if(result == 0) {
 			session.setAttribute("errMsg", "로그인 정보가 올바르지 않습니다.");
 			response.sendRedirect("loginForm.jsp");	
 		}
-	
-	
-	
-	
-	
+		
+		else if(result == -1){
+			session.setAttribute("errMsg", "존재하지 않는 아이디 입니다.");
+			response.sendRedirect("loginForm.jsp");	
+		}
 	
 	
 	%>
