@@ -10,20 +10,6 @@
 <meta charset="UTF-8">
 <title>회원정보 수정 페이지</title>
 
-<%-- Bootstrap 가져오기 --%>
-<link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-	crossorigin="anonymous">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-	crossorigin="anonymous"></script>
-<%-- Bootstrap 가져오기 --%>
-
-
 </head>
 <body>
 
@@ -46,18 +32,18 @@
 				<form method="post" action="updateaction.jsp">
 					<h3 style="text-align:center;">내 정보</h3>
 					<div class = "form-group">
-						회원ID <input type="text" class="form-control" value=<%=user.getuserid()%> name="userid" maxlength="20" disabled>
+						<input type="text" class="form-control" value=<%=user.getID()%> name="userid" maxlength="20">
 					</div>
 					<div class="form-group">
-						비밀번호 <input type="password" class="form-control" value=<%=user.getuserpw()%> name="userpw" maxlength="20">
+						<input type="password" class="form-control" value=<%=user.getPW()%> name="userpw" maxlength="20">
 					</div>
 					<div class="form-group">
-						유저 이름 <input type="text" class="form-control" value=<%=user.getusername()%> name="username" maxlength="20">
+						<input type="text" class="form-control" value=<%=user.getNAME()%> name="username" maxlength="20">
 					</div>
 					<div class="form-group" style="text-align:center;">
 						<div class="btn-group" data-toggle="buttons">
 						<%
-							if(user.getusergender().equals("남자")){
+							if(user.getGENDER().equals("남자")){
 						%>
 							<label class="btn btn-success active">
 						<%
@@ -71,7 +57,7 @@
 								<input type="radio" name="usergender" autocomplete="off" value="남자" checked>남자
 							</label>
 						<%
-							if(user.getusergender().equals("여자")){
+							if(user.getGENDER().equals("여자")){
 						%>
 								<label class="btn btn-success active">
 						<%
@@ -86,7 +72,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						이메일<input type="email" class="form-control" value=<%=user.getuseremail()%> name="userEmail" maxlength="20">
+						<input type="email" class="form-control" value=<%=user.getEMAIL()%> name="userEmail" maxlength="20">
 					</div>
 					<input type="submit" class="btn btn-success form-control" value="수정하기"></form>
 					<br>
