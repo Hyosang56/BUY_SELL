@@ -3,6 +3,7 @@
 <%@ page import="member.bean.MemberDTO"%>
 <%@ page import="member.dao.MemberDAO"%>
 <%@ page import="java.io.PrintWriter" %>
+<% request.setCharacterEncoding("UTF-8"); %>
 
 <!DOCTYPE html>
 <html>
@@ -46,18 +47,21 @@
 				<form method="post" action="updateaction.jsp">
 					<h3 style="text-align:center;">내 정보</h3>
 					<div class = "form-group">
-						회원ID <input type="text" class="form-control" value=<%=user.getuserid()%> name="userid" maxlength="20" disabled>
+						회원ID <input type="text" class="form-control" value=<%=user.getuserid()%> name="userid" maxlength="20" readonly>
 					</div>
+					
 					<div class="form-group">
 						비밀번호 <input type="password" class="form-control" value=<%=user.getuserpw()%> name="userpw" maxlength="20">
 					</div>
+					
 					<div class="form-group">
 						유저 이름 <input type="text" class="form-control" value=<%=user.getusername()%> name="username" maxlength="20">
 					</div>
+					
 					<div class="form-group" style="text-align:center;">
 						<div class="btn-group" data-toggle="buttons">
 						<%
-							if(user.getusergender().equals("남자")){
+							if(user.getusergender().equals("man")){
 						%>
 							<label class="btn btn-success active">
 						<%
@@ -68,10 +72,10 @@
 						<%
 							}
 						%>		
-								<input type="radio" name="usergender" autocomplete="off" value="남자" checked>남자
+								<input type="radio" name="usergender" autocomplete="off" value="man" checked >남자
 							</label>
 						<%
-							if(user.getusergender().equals("여자")){
+							if(user.getusergender().equals("woman")){
 						%>
 								<label class="btn btn-success active">
 						<%
@@ -81,16 +85,26 @@
 						<%
 							}
 						%>	
-								<input type="radio" name="usergender" autocomplete="off" value="여자" checked>여자
+								<input type="radio" name="usergender" autocomplete="off" value="woman" >여자
 							</label>
 						</div>
 					</div>
+					
 					<div class="form-group">
-						이메일<input type="email" class="form-control" value=<%=user.getuseremail()%> name="userEmail" maxlength="20">
+						이메일<input type="email" class="form-control" value=<%=user.getuseremail()%> name="useremail" maxlength="20">
 					</div>
+					
+					<div class="form-group">
+						생년월일<input type="number" class="form-control" value=<%=user.getuserdob()%> name="userdob" maxlength="20">
+					</div>
+					
+					<div class="form-group">
+						휴대폰번호<input type="text" class="form-control" value=<%=user.getuserphone()%> name="userphone" maxlength="20">
+					</div>
+					
 					<input type="submit" class="btn btn-success form-control" value="수정하기"></form>
 					<br>
-            <form method="post" action="userDeleteAction.jsp">
+            <form method="post" action="deleteaction.jsp">
             <input type="submit" class="btn btn-danger pull-right" value="탈퇴하기">
             </form>
 

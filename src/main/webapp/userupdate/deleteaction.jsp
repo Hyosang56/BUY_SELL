@@ -39,7 +39,7 @@
 				PrintWriter script=response.getWriter();
 				script.println("<script>");
 				script.println("alert('회원탈퇴에 성공했습니다.')");
-				script.println("location.href='main.jsp'");   //메인으로 돌아가기 
+				script.println("location.href='../login/MAIN.jsp'");   //메인으로 돌아가기 
 				script.println("</script>");
 			}
 	%>

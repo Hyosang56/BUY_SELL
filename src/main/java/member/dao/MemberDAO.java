@@ -198,10 +198,10 @@ public class MemberDAO {
 	
 	////////////////////////////////////////////////
 	
-	public MemberDTO getUser(String userid) {//하나의 글 내용을 불러오는 함수
+	public MemberDTO getUser(String userid) {     //회원정보 수정을 위해 아이디의 정보 가져옴
 		String SQL="SELECT * from userdb where userid = ?";
 		try {
-			PreparedStatement pstmt=conn.prepareStatement(SQL);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, userid);//물음표
 			rs = pstmt.executeQuery();//select
 			if(rs.next()) {//결과가 있다면
@@ -211,6 +211,8 @@ public class MemberDAO {
 				user.setusername(rs.getString(3));
 				user.setusergender(rs.getString(4));
 				user.setuseremail(rs.getString(5));
+				user.setuserdob(rs.getString(6));
+				user.setuserphone(rs.getString(7));
 				return user;//6개의 항목을 user인스턴스에 넣어 반환한다.
 			}			
 		} catch(Exception e) {
@@ -221,17 +223,20 @@ public class MemberDAO {
 	
     ////////////////////////////////////////////////
 	
-	public int update(String userid, String userpw, String username, String usergender, String useremail ) {
-		String SQL="update userdb set userpw = ?, username = ?, usergender = ?, useremail = ? where userid = ?";//특정한 아이디에 해당하는 제목과 내용을 바꿔준다. 
+	public int update(String userid, String userpw, String username, String usergender, String useremail, String userdob, String userphone ) {
+		String SQL = "update userdb set userpw = ?, username = ?, usergender = ?, useremail = ? , userdob = ?, userphone = ? where userid = ?";//특정한 아이디에 해당하는 제목과 내용을 바꿔준다. 
 		try {
-			PreparedStatement pstmt=conn.prepareStatement(SQL);
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, userpw);
 			pstmt.setString(2, username);
 			pstmt.setString(3, usergender);
 			pstmt.setString(4, useremail);
-			pstmt.setString(5, userid);
+			pstmt.setString(5, userdob);
+			pstmt.setString(6, userphone);
+			pstmt.setString(7, userid);
 			return pstmt.executeUpdate();		
-		} catch(Exception e) {
+		} 
+		catch(Exception e) {
 			e.printStackTrace();
 		}
 		return -1;//데이터베이스 오류
@@ -240,7 +245,7 @@ public class MemberDAO {
     ////////////////////////////////////////////////
 	
 	public int delete(String userid) {
-		String SQL="delete from userdb where userid = ?";//특정한 아이디에 해당하는 제목과 내용을 바꿔준다. 
+		String SQL="Delete from userdb where userid = ?";//특정한 아이디에 해당하는 제목과 내용을 바꿔준다. 
 		try {
 			PreparedStatement pstmt=conn.prepareStatement(SQL);
 			pstmt.setString(1, userid);
@@ -279,6 +284,8 @@ public class MemberDAO {
 		return -2; //데이터베이스 오류
 	}
 
+	////////////////////////////////////////
+	
 	
 	
 }
