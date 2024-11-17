@@ -24,8 +24,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-md navbar-dark bg-dark"
-		aria-label="Fourth navbar example">
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 		<div class="container-md">
 		<div class="imgform">
 			<a class="navbar-brand" href="MAIN.jsp">              <%--우측상단 이미지 --%>
@@ -37,10 +36,12 @@
 
 
 			<div class="collapse navbar-collapse" id="navbarsExample04">
-				<ul class="navbar-nav me-auto mb-2 mb-md-0">
+			<%--
+				<<ul class="navbar-nav me-auto mb-2 mb-md-0">
 					<li class="nav-item">
 					<a class="nav-link active" aria-current="page" href="###">내 상점</a></li>
 						</ul>
+						--%>
 				</div>
 				
 				
@@ -50,12 +51,12 @@
 				
 				
 				<li class="sell-item">
-				<a class="btn btn-warning btn-lg" href="#">판매하기</a>
+				<a class="btn btn-light btn-lg fw-bold" href="loginForm.jsp" onclick="alert('판매하려면 로그인해주세요.') ">판매하기</a>
 				</li>
 				
 				<li class="login-item">
 				<div class="btn-group " role="login group" aria-label="login label">
-                <button type="button" class="btn btn-outline-secondary" onclick="window.location.href='loginForm.jsp'">로그인</button>
+                <button type="button" class="btn btn-outline-light" onclick="window.location.href='loginForm.jsp'">로그인</button>
                 <button type="button" class="btn btn-outline-light" onclick="window.location.href='joinForm.jsp'">회원가입</button>
                 </div>
                 </li>

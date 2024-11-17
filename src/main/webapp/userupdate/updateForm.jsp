@@ -47,7 +47,7 @@
 				<form method="post" action="updateaction.jsp">
 					<h3 style="text-align:center;">내 정보</h3>
 					<div class = "form-group">
-						회원ID <input type="text" class="form-control" value=<%=user.getuserid()%> name="userid" maxlength="20" readonly>
+						회원ID(수정불가) <input type="text" class="form-control" value=<%=user.getuserid()%> name="userid" maxlength="20" readonly>
 					</div>
 					
 					<div class="form-group">
