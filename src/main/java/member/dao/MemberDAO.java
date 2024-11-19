@@ -242,7 +242,7 @@ public class MemberDAO {
 	}
 	
 	/////////////////////////////////////////////
-	
+/*	
 	public UserDAO() {//mysql에 접속을 하게 해줌,자동으로 데이터베이스 커넥션이 일어남
 		try {//예외처리
 			String dbURL = "jdbc:mysql://localhost:3306/BBS?serverTimezone=UTC";
@@ -255,7 +255,7 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 	}
-	
+	*/
 /////////////////////////////////////////////
 	
 	public int login1(String userid, String userpw) {//로그인을 시도하는 함수

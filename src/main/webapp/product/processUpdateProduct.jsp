@@ -9,13 +9,13 @@
 <%
 
 	// 파일을 전달받기 위한 작업
-	String path = "../resources/images";
+	String path = "./resources/images";
 	String savedir = request.getServletContext().getRealPath(path);
 	int maxSize = 5*1024*1024;
 	String encType = "utf-8";
 	
 	// 전달값 접근을 위한 MultipartRequest 객체 생성
-	MultipartRequest multi = new MultipartRequest(request, savedir, maxSize, encType);
+	MultipartRequest multi = new MultipartRequest(request, savedir, maxSize, encType, new DefaultFileRenamePolicy());
 
 	// 전달받은 파라미터 담기
 	String productId = multi.getParameter("productId");
