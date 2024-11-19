@@ -26,7 +26,7 @@
 	PreparedStatement pstmt = null;
 
 	try {
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		conn = DriverManager.getConnection(DBURL, DBUser, DBPassword);
 
 		String sql = "INSERT INTO userdb (userid, userpw, username, usergender, useremail, userdob, userphone) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -40,7 +40,7 @@
 		pstmt.setString(7, userphone);
 		pstmt.executeUpdate();
 
-		out.println("회원가입 성공");
+		response.sendRedirect("loginForm.jsp");	
 	} 
 	
 	catch (Exception e) {             //SQL 리소스 종료 

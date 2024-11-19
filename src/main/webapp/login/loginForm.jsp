@@ -51,7 +51,7 @@ if(errMsg == null) errMsg = ""; %>
 
                                                                                        <%--로그인 안내 문구 --%>
 					<img class="mb-4" src="../docs/pic/Fulllogobigedit.png" name="logo" alt="error" width="367" height="300">
-					<h1 class="h3 mb-3 fw-normal">Please Sign in</h1>
+					<h1 class="h3 mb-3 fw-normal">지금 로그인하여 지구에 도움주기!</h1>
 
 					<div class="form-floating">                                     <%-- 아이디 항목 --%>
 						<input type="id" class="form-control" id="userid" name="userid" placeholder="ID"> 

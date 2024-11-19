@@ -10,7 +10,7 @@ import member.bean.MemberDTO;
 
 
 public class MemberDAO {
-	private String diver = "com.mysql.jdbc.Driver";
+	private String diver = "com.mysql.cj.jdbc.Driver";
 	private String DBURL = "jdbc:mysql://localhost:3306/buynselldb";
 	private String DBUser = "dbmgrid";
 	private String DBPassword = "dbmgrpw";
@@ -49,7 +49,7 @@ public class MemberDAO {
 	
 	////////////////////////////
 	
-	public int write(MemberDTO memberDTO){
+	public int write(MemberDTO memberDTO){           //회원가입
 		int su = 0;
 		conn = getConnection();
 		String sql =
@@ -84,7 +84,7 @@ public class MemberDAO {
 	}
 	
 	
-	public String login(String userid, String userpw){
+	public String login(String userid, String userpw){     //로그인파트 
 		String name="null";
 		conn = getConnection();
 		String sql = "select * from userdb where userid=? and userpw=?";
@@ -117,7 +117,7 @@ public class MemberDAO {
 	}
 	
 	///////////////////////////////////////////////////
-	public boolean isExistId(String userid){
+	public boolean isExistId(String userid){             //아이디 중복확인 
 		boolean exist = false;
 		conn = getConnection();
 		String sql = "select * from userdb where userid=?";
