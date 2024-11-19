@@ -74,9 +74,14 @@ if(errMsg == null) errMsg = ""; %>
 					<div class="d-grid gap-2">                                         <%-- 로그인 버튼 --%>
 					<button class="btn btn-primary btn-lg" type="submit" value="로그인" onclick="login()">로그인</button>
 									 
-                                                                                                    <%-- 회원가입 --%>
-					<button type="button"class="btn btn-outline-secondary btn-lg"      
+                                                                                                    <%-- 회원가입 --%>                                                                                                  
+					<button type="button"class="btn btn-outline-secondary btn-lg" name="join"     
 					onclick="window.location.href='joinForm.jsp'">Join</button>
+					</div>
+					
+					<div>
+					<a href="../userfind/findID.jsp">아이디 찾기</a>
+					<a href="../userfind/findPW.jsp">비밀번호 찾기</a>
 					</div>
 									
 				<p class="mt-5 mb-3 text-muted">&copy;All right reserved 2024</p>

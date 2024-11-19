@@ -9,7 +9,7 @@ body {                            /*백그라운드 화면색, 페딩처리(여�
   background-color: #f5f5f5;
 }
 
-.form-findID-out {                        /*폼관련 설정 해당 값으로 전체 길이 설정*/
+.form-findIDresult-out {                        /*폼관련 설정 해당 값으로 전체 길이 설정*/
   width: 100%;
   max-width: 500px;
   padding: 20px;
@@ -18,10 +18,14 @@ body {                            /*백그라운드 화면색, 페딩처리(여�
   padding-top: 80px;
 }
 
-.form-findID-out .form-ifindID-in {                 /*id항목 플로팅창,버튼 정렬 옵션*/
+.form-findIDresult-out .form-ifindIDresult-in {                 /*id항목 플로팅창,버튼 정렬 옵션*/
   display: flex;
 }
 
 /*입력컴포넌트 설정*/
 
 
+.form-ifindIDresult-in [id="IDresult"] {
+	font-weight: bold ;
+	font-size: 20px;
+}

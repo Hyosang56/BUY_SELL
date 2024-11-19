@@ -83,12 +83,12 @@
                 </div>
 				
 				<div class="form-floating">
-				<input type="dob" class="form-control" id="userdob" name="userdob" placeholder="dob" required> 
+				<input type="dob" class="form-control" id="userdob" name="userdob" placeholder="dob" maxlength="6" required> 
 				<label for="floatingInput"> 생년월일 6자리 </label> 
 				</div>
 				
 				<div class="form-floating">
-				<input type="phone" class="form-control" id="userphone" name="userphone" placeholder="phone" required> 
+				<input type="phone" class="form-control" id="userphone" name="userphone" placeholder="phone" maxlength="11" required> 
 				<label for="floatingInput">휴대폰번호('-'를 빼고 작성)</label> 
 				</div>
 										

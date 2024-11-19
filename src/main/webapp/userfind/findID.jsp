@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import="java.sql.*"%>
+    <% request.setCharacterEncoding("utf-8"); %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,14 +30,19 @@
 
 </head>
 
-<body class="text-center">
+<body>
 
-<main class="form-findID">
+<jsp:include page="/login/Topbar.jsp" />
 
+<div class="text-center">
+<div class="contentmain">
 
-	<form class="form-findID" name="idfindscreen" method = "POST">
+<main class="form-findID-out">
+
+	<form class="form-findID-in" name="idfindscreen" method = "POST">
 	<h1 class="h3 mb-3 fw-normal">휴대폰 본인확인</h1>
 		<section class = "form-search">
+		
 		
 			<div class = "input-group input-group-lg">
 				<span class="input-group-text" id="inputGroup-sizing-lg">이름</span>
@@ -57,6 +64,10 @@
 		<input type="button" class="btn btn-outline-success btn-lg" name="enter" value="찾기" onClick="id_search()">
  	</div>
  </form>
+ 
+ </main>
+ </div>
+</div>
 
 
 </body>

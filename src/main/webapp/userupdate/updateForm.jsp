@@ -3,6 +3,7 @@
 <%@ page import="member.bean.MemberDTO"%>
 <%@ page import="member.dao.MemberDAO"%>
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.sql.*"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 
 <!DOCTYPE html>
@@ -24,10 +25,15 @@
 	crossorigin="anonymous"></script>
 <%-- Bootstrap 가져오기 --%>
 
+<link href="../login/Design CSS/update.css?v=<%=System.currentTimeMillis() %>" rel="stylesheet">        <%-- 스타일을 위한 css 시트 --%>
+
+<script type="text/javascript" src="../resources/js/updateV.js?v=<%=System.currentTimeMillis() %>" defer> <%-- 입력값 확인 증명 자바스크립트 --%>
+</script>
 
 </head>
 <body>
 
+<jsp:include page="/login/Topbar_login.jsp" />
 
     <% 
 	String userid = null;
@@ -39,26 +45,30 @@
 	
 	%>
 
-	<div class="container">
-		<div class="col-lg-4"></div>
-		<div class="col-lg-4">
-			<div class="jumbotron" style="padding-top: 20px;">
+<div class="text-center">
+<div class="contentmain">
+				
+<main class="form-update-out">
 			
-				<form method="post" action="updateaction.jsp">
-					<h3 style="text-align:center;">내 정보</h3>
-					<div class = "form-group">
-						회원ID(수정불가) <input type="text" class="form-control" value=<%=user.getuserid()%> name="userid" maxlength="20" readonly>
+				<form name="updateForm" class="form-update-in" method="post" action="updateaction.jsp" onsubmit="return checkUpdate();">
+					<h2 class="h3 mb-3 fw-normal">내 정보</h2>
+					<div class = "form-floating">
+						<input type="text" class="form-control" value=<%=user.getuserid()%> name="userid" maxlength="20" readonly>
+						<label for="floatingInput">아이디(수정불가)</label>
 					</div>
 					
-					<div class="form-group">
-						비밀번호 <input type="password" class="form-control" value=<%=user.getuserpw()%> name="userpw" maxlength="20">
+					<div class="form-floating">
+						<input type="password" class="form-control" value=<%=user.getuserpw()%> name="userpw" maxlength="20">
+						<label for="floatingPassword">비밀번호</label>
 					</div>
 					
-					<div class="form-group">
-						유저 이름 <input type="text" class="form-control" value=<%=user.getusername()%> name="username" maxlength="20">
+					<div class="form-floating">
+						<input type="text" class="form-control" value=<%=user.getusername()%> name="username" maxlength="20">
+						<label for="floatingInput">사용자 이름</label>
 					</div>
 					
-					<div class="form-group" style="text-align:center;">
+					
+					<div class="form-radio" style="text-align:center;">
 						<div class="btn-group" data-toggle="buttons">
 						<%
 							if(user.getusergender().equals("man")){
@@ -90,25 +100,32 @@
 						</div>
 					</div>
 					
-					<div class="form-group">
-						이메일<input type="email" class="form-control" value=<%=user.getuseremail()%> name="useremail" maxlength="20">
+					
+					<div class="form-floating">
+						<input type="email" class="form-control" value=<%=user.getuseremail()%> name="useremail" maxlength="20">
+						<label for="floatingInput">이메일</label>
 					</div>
 					
-					<div class="form-group">
-						생년월일<input type="number" class="form-control" value=<%=user.getuserdob()%> name="userdob" maxlength="20">
+					<div class="form-floating">
+						<input type="text" class="form-control" value=<%=user.getuserdob()%> name="userdob" maxlength="6">
+						<label for="floatingInput">생년월일 6자리</label>
 					</div>
 					
-					<div class="form-group">
-						휴대폰번호<input type="text" class="form-control" value=<%=user.getuserphone()%> name="userphone" maxlength="20">
+					<div class="form-floating">
+						<input type="text" class="form-control" value=<%=user.getuserphone()%> name="userphone" maxlength="11">
+						<label for="floatingInput">휴대폰번호('-'를 빼고 작성)</label>
 					</div>
 					
-					<input type="submit" class="btn btn-success form-control" value="수정하기"></form>
-					<br>
-            <form method="post" action="deleteaction.jsp">
+			<input type="submit" class="btn btn-success form-control" value="수정하기"></form>
+					
+            <form class="form-userdelete" method="post" action="deleteaction.jsp">
             <input type="submit" class="btn btn-danger pull-right" value="탈퇴하기">
             </form>
 
-					</div></div>
+					
+					</main>
+					</div>
+					</div>
 
 
 </body>

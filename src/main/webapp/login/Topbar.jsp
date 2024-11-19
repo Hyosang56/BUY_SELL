@@ -27,7 +27,7 @@
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 		<div class="container-md">
 		<div class="imgform">
-			<a class="navbar-brand" href="MAIN.jsp">              <%--우측상단 이미지 --%>
+			<a class="navbar-brand" href="../login/MAIN.jsp">              <%--우측상단 이미지 --%>
 			 <img src="../docs/pic/Fulllogoedit.png" alt="buynselllogo" width="236" height="43">
 			</a>
 			
@@ -56,8 +56,8 @@
 				
 				<li class="login-item">
 				<div class="btn-group " role="login group" aria-label="login label">
-                <button type="button" class="btn btn-outline-light" onclick="window.location.href='loginForm.jsp'">로그인</button>
-                <button type="button" class="btn btn-outline-light" onclick="window.location.href='joinForm.jsp'">회원가입</button>
+                <button type="button" class="btn btn-outline-light" onclick="window.location.href='../login/loginForm.jsp'">로그인</button>
+                <button type="button" class="btn btn-outline-light" onclick="window.location.href='../login/joinForm.jsp'">회원가입</button>
                 </div>
                 </li>
                 

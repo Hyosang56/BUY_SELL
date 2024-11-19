@@ -10,9 +10,9 @@ body {                            /*백그라운드 화면색, 페딩처리(여�
 }
 
 .contentmain {                              /*컴포넌트 정렬 관리*/
-	display: flex;
-	align-items: center;
-	padding-top: 50px;
+display: flex;
+align-items: center;
+padding-top: 50px;
   padding-bottom: 150px;
 	
 }
@@ -64,5 +64,9 @@ body {                            /*백그라운드 화면색, 페딩처리(여�
 }
 
 .form-login-in [type="errMsg"] {           /*에러메시지 옵션*/
+  margin-bottom: 10px;
+}
+
+.form-login-in [name="join"] {           /*비밀번호 입력 플로팅라벨 옵션*/
   margin-bottom: 10px;
 }

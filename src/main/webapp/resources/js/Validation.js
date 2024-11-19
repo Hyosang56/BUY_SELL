@@ -1,25 +1,3 @@
-/* function checkLogin(){                                  //로그인 미입력시 알람
-	
-	if(document.loginForm.userid.value ==""){
-		alert("아이디를 입력하세요");
-		document.loginForm.userid.focus();
-		return false;
-	}
-	else if(document.loginForm.userpw.value == ""){
-		alert("비밀번호를 입력하세요");
-		document.loginForm.userpw.focus();
-		return false;		
-		
-	}
-	else{
-		document.loginForm.submit();
-		return true;
-	}	
-	
-}
-*/
-
-
 
 function checkJoin(){                                         //회원가입 미입력시 알람 
 	

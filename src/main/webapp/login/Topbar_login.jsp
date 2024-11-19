@@ -28,7 +28,7 @@
 		aria-label="Fourth navbar example">
 		<div class="container-md">
 		<div class="imgform">
-			<a class="navbar-brand" href="MAIN.jsp">              <%--우측상단 이미지 --%>
+			<a class="navbar-brand" href="../login/MAIN.jsp">              <%--우측상단 이미지 --%>
 			 <img src="../docs/pic/Fulllogoedit.png" alt="buynselllogo" width="236" height="43">
 			</a>
 			
@@ -55,7 +55,7 @@
 				<li class="login-item">
 				<div class="btn-group " role="login group" aria-label="login label">
                 <button type="button" class="btn btn-outline-light" onclick="window.location.href='../userupdate/updateForm.jsp'">마이페이지</button>
-                <button type="button" class="btn btn-outline-light" onclick="window.location.href='logoutaction.jsp'">로그아웃</button>
+                <button type="button" class="btn btn-outline-light" onclick="window.location.href='../login/logoutaction.jsp'">로그아웃</button>
                 </div>
                 </li>
                 
