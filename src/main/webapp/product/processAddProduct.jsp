@@ -99,7 +99,7 @@ public static String randomid(){
 
 	
 	// SQL 사용해 DB에 상품 등록하기
-	String insertsql= "insert into product values(?,?,?,?,?)";
+	String insertsql= "INSERT INTO product(p_id, p_name, p_price, p_description, p_fileName, buycheck) values(?,?,?,?,?,?)";
 	pstmt= conn.prepareStatement(insertsql);
 	
 	pstmt.setString(1, productId);
@@ -107,6 +107,7 @@ public static String randomid(){
 	pstmt.setInt(3, defaultPrice);
 	pstmt.setString(4, description);
 	pstmt.setString(5, productImage);
+	pstmt.setInt(6, 0);
 	
 	// SQL 실행
 	pstmt.executeUpdate();

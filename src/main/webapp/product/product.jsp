@@ -46,7 +46,7 @@
     			<p><%= rs.getString("p_description") %></p>
     			<p>
     				<strong>상품 코드 : </strong>
-    				<span class="badge badge-danger"><%= rs.getString("p_id") %></span>
+    				<%= rs.getString("p_id") %>
     			</p>
     			<h4><%= rs.getString("p_price") %> 원</h4>
     			<p>
