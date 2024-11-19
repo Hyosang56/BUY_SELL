@@ -43,10 +43,10 @@ if(errMsg == null) errMsg = ""; %>
 <div class="text-center">
 <div class="contentmain">
 				
-<main class="form-login">
+<main class="form-login-out">
 	<h3>Buy & Sell에 오신걸 환영합니다.</h3>
 
-	<form class="form-login" name = "loginForm" method="post" action="loginaction.jsp">   <%-- 로그인 진행페이지 --%>
+	<form class="form-login-in" name = "loginForm" method="post" action="loginaction.jsp">   <%-- 로그인 진행페이지 --%>
 
 
                                                                                        <%--로그인 안내 문구 --%>
